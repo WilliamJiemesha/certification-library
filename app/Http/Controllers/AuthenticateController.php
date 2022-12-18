@@ -62,7 +62,7 @@ class AuthenticateController extends Controller
         $password = $request->input('password');
 
         // Check if user already exists in database
-        $userDB = DB::table('peminjam')->select('username', 'password')->where([['username', '=', strtolower($username)], ['password', '=', $password]])->count();
+        $userDB = DB::table('peminjam')->select('username', 'password')->where([['username', '=', strtolower($username)]])->count();
         if ($userDB != 0) {
             // Redirect back if user exists
             return redirect('/register')->withErrors(['invalidRegister' => 'Email atau Kata Sandi sudah digunakan']);
