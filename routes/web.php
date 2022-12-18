@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthenticateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('catalogue');
 });
+
+Route::get('/signup', [AuthenticateController::class, 'getRegister']);
+Route::post('/signup', [AuthenticateController::class, 'postRegister']);
+
+Route::get('/login', [AuthenticateController::class, 'getLogin']);
+Route::post('/login', [AuthenticateController::class, 'postLogin']);
