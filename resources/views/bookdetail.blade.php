@@ -15,23 +15,22 @@
     {{-- Navigation Bar --}}
     @include('navbar')
 
+    {{-- Book Details --}}
+
     <div class="container mt-5">
         <div class="row mx-auto">
+            {{-- Book Cover --}}
             <div class="col-lg-2 col-md-4 col-xl-2 col-sm-4 text-end mb-5" style="max-width: 166px">
                 <div class="row">
                     <div class="bookImage" style="padding: 0; margin: 0;">
                         <img class="coverImage" src="{{ url('/book_covers/' . $bookSelected->ImageString) }}"
                             alt="Book Cover" width="166px" height="256px">
                     </div>
-                    <form action="/catalogue/postBorrowBook" method="POST" class="text-center mt-3">
-                        @csrf
-                        <input type="hidden" value="{{ $bookSelected->Id }}" name="id">
-                        <input type="submit" class="buttonContent button" value="Borrow">
-                    </form>
+
                 </div>
-
-
             </div>
+
+            {{-- Book Content Information --}}
             <div class="col-lg-10 col-md-8 col-xl-10 col-sm-8">
                 <div class="bookTitle">
                     {{ $bookSelected->Judul }}
@@ -53,3 +52,8 @@
 </body>
 
 </html>
+{{-- <form action="/catalogue/postBorrowBook" method="POST" class="text-center mt-3">
+                        @csrf
+                        <input type="hidden" value="{{ $bookSelected->Id }}" name="id">
+                        <input type="submit" class="buttonContent button" value="Borrow">
+                    </form> --}}
