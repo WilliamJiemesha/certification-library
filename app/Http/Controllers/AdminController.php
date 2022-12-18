@@ -94,19 +94,23 @@ class AdminController extends Controller
         return redirect('/admin/log');
     }
 
-
+    // Get admin's book view
     public function getBookView()
     {
+        // Get book data from database
         $bookCatalogueCollection = DB::select("SELECT id_buku `Id`, judul `Judul`, authors `Author`, summary `Summary`, release_year `ReleaseYear`, image_string `ImageString` FROM buku");
         return view('adminviewbooks')->with(['bookCollection' => $bookCatalogueCollection]);
     }
 
+    // Get admin edit book's view
     public function getEditBookDetailView($id)
     {
+        // Get selected book data based on id passed
         $bookSelected = DB::select("SELECT id_buku `id`, judul `title`, authors `author`, summary `summary`, release_year `release_year`, image_string `image_string` FROM buku WHERE id_buku = '" . $id . "'")[0];
         return view('admineditbooks')->with(['book' => $bookSelected]);
     }
 
+    // Post admin book edit result and updates it on database
     public function postBookEditView(Request $request)
     {
         // Get book-to-add informations
@@ -138,9 +142,13 @@ class AdminController extends Controller
         return redirect('/admin/books');
     }
 
-    public function postBookDelete(Request $request){
+    // Post delete book selected and deletes it from the database
+    public function postBookDelete(Request $request)
+    {
+        // Get id
         $id = $request->input('id');
+
+        // Delete from database
         DB::table('buku')->where('id_buku', $id)->delete();
-        error_log("IN");
     }
 }
