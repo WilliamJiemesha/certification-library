@@ -1,0 +1,38 @@
+body{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.loginContainer{
+    /* background: #F9F9F9; */
+}
+
+.formTitle{
+    font-weight: 600;
+    margin: 10px 0px 10px 0px;
+    font-size: 24px;
+}
+
+.formContent{
+    margin: 10px 0px 10px 0px;
+}
+
+.plainFormInput input{
+    /* outline: none; */
+    border: 1;
+    border-color: gray;
+    padding: 10px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.button{
+    background: #24A0ED;
+    border-radius: 15px;
+    padding: 10px;
+    width: 100px;
+    margin-top: 20px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+

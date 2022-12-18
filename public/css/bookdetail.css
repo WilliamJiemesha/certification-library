@@ -1,0 +1,36 @@
+body{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.bookTitle{
+    font-size: 16;
+    font-weight:600;
+    padding: 0;
+    margin: 0;
+}
+.bookCard a{
+    text-decoration: none;
+    color: black;
+}
+
+.button{
+    background: #24A0ED;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 20px;
+
+}
+
+.buttonContent{
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.descriptionContent{
+    color: #555555;
+}
+
+.descriptionTitle{
+    font-weight: 600;
+}
