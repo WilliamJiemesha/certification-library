@@ -110,7 +110,7 @@ class AuthenticateController extends Controller
         $userDB = DB::table('admin')->select('id_admin', 'username', 'password')->where([['username', '=', strtolower($username)], ['password', '=', $password]]);
         if ($userDB->count() == 0) {
             // Redirect back to login if admin information doesn't exist
-            return redirect('/admin/login')->withErrors(['invalidLogin' => 'Email atau Kata Sandi salah']);
+            return redirect('/admin/login')->withErrors(['invalidLogin' => 'Username atau Kata Sandi salah']);
         }
 
         // Put admin information in session
