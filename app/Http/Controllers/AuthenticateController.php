@@ -31,7 +31,7 @@ class AuthenticateController extends Controller
         // Check if user exists in database
         $userDB = DB::table('peminjam')->select('id_peminjam', 'username', 'password')->where([['username', '=', strtolower($username)], ['password', '=', $password]]);
         if ($userDB->count() == 0) {
-            return redirect('/login')->withErrors(['invalidLogin' => 'Email atau Kata Sandi salah']);
+            return redirect('/login')->withErrors(['invalidLogin' => 'Username atau Kata Sandi salah']);
         }
 
         // Put information in session
@@ -65,7 +65,7 @@ class AuthenticateController extends Controller
         $userDB = DB::table('peminjam')->select('username', 'password')->where([['username', '=', strtolower($username)]])->count();
         if ($userDB != 0) {
             // Redirect back if user exists
-            return redirect('/register')->withErrors(['invalidRegister' => 'Email atau Kata Sandi sudah digunakan']);
+            return redirect('/register')->withErrors(['invalidRegister' => 'Username sudah digunakan']);
         }
 
         // Insert into database
