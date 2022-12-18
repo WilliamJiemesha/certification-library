@@ -28,12 +28,19 @@
                             <input type="text" placeholder="Enter your username here" name="username" required>
                         </div>
                         <div class="password formContent plainFormInput">
-                            <input type="password" placeholder="Enter your password here" name="password" required min="8" max="16">
+                            <input type="password" placeholder="Enter your password here" name="password" required
+                                min="8" max="16">
                         </div>
                         <div class="submitButton formContent">
                             <input type="submit" value="Log In" class="button">
                         </div>
                     </form>
+                    @if ($errors->any())
+                        {!! implode(
+                            '',
+                            $errors->all('<div class="mt-2" style="color:red; font-size: 10; font-weight: bold">:message</div>'),
+                        ) !!}
+                    @endif
                 </div>
             </div>
         </div>

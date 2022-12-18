@@ -35,6 +35,12 @@
                             <input type="submit" value="Sign Up" class="button">
                         </div>
                     </form>
+                    @if ($errors->any())
+                        {!! implode(
+                            '',
+                            $errors->all('<div class="mt-2" style="color:red; font-size: 10; font-weight: bold">:message</div>'),
+                        ) !!}
+                    @endif
                 </div>
             </div>
         </div>
