@@ -20,38 +20,32 @@
             <div class="col-lg-2 col-md-4 col-xl-2 col-sm-4 text-end mb-5" style="max-width: 166px">
                 <div class="row">
                     <div class="bookImage" style="padding: 0; margin: 0;">
-                        <img class="coverImage" src="{{ url('/book_covers/white_fang.jpg') }}" alt="Book Cover"
-                            width="166px" height="256px">
+                        <img class="coverImage" src="{{ url('/book_covers/' . $bookSelected->ImageString) }}"
+                            alt="Book Cover" width="166px" height="256px">
                     </div>
-                    <a href="" class="buttonContent">
-                        <div class="button text-center">
-                            Borrow
-                        </div>
-                    </a>
+                    <form action="/catalogue/postBorrowBook" method="POST" class="text-center mt-3">
+                        @csrf
+                        <input type="hidden" value="{{ $bookSelected->Id }}" name="id">
+                        <input type="submit" class="buttonContent button" value="Borrow">
+                    </form>
                 </div>
 
 
             </div>
             <div class="col-lg-10 col-md-8 col-xl-10 col-sm-8">
                 <div class="bookTitle">
-                    White Fang
+                    {{ $bookSelected->Judul }}
                 </div>
                 <div class="bookAuthor">
-                    Jack London
+                    {{ $bookSelected->Author }}
                 </div>
                 <div class="bookSummary">
                     <p class="descriptionTitle p-0 m-0 mt-3">Summary</p>
-                    <p class="descriptionContent">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                        unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                        survived not only five centuries, but also the leap into electronic typesetting, remaining
-                        essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                        containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.</p>
+                    <p class="descriptionContent">{{ $bookSelected->Summary }}</p>
                 </div>
                 <div class="releaseYear">
                     <p class="descriptionTitle p-0 m-0 mt-3">Release Year</p>
-                    <p class="descriptionContent">2016</p>
+                    <p class="descriptionContent">{{ $bookSelected->ReleaseYear }}</p>
                 </div>
             </div>
         </div>

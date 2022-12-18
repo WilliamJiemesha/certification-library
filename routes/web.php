@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\CatalogueController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +15,20 @@ use App\Http\Controllers\AuthenticateController;
 |
 */
 
-Route::get('/', function () {
-    return view('catalogue');
-});
+// Route::get('/', function () {
+//     return view('catalogue');
+// });
 
 Route::get('/signup', [AuthenticateController::class, 'getRegister']);
 Route::post('/signup', [AuthenticateController::class, 'postRegister']);
 
 Route::get('/login', [AuthenticateController::class, 'getLogin']);
 Route::post('/login', [AuthenticateController::class, 'postLogin']);
+
+Route::get('/', [CatalogueController::class, 'getCatalogue']);
+Route::get('/catalogue/{id}', [CatalogueController::class, 'getCatalogueSelected']);
+Route::post('/catalogue/postBorrowBook', [CatalogueController::class, 'postBorrowBook']);
+
+Route::get('/preview', function () {
+    return view('adminlog');
+});
