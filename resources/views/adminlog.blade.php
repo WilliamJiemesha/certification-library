@@ -12,9 +12,7 @@
 
 <body style="padding: 0; margin: 0">
     {{-- Navigation Bar --}}
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand p-2" href="/preview">Library Borrow Log</a>
-    </nav>
+    @include('navbaradmin')
 
 
     <div class="container">
@@ -30,14 +28,17 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($logData as $data)
                 <tr>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
+                    <td>{{ $data->name }}</td>
+                    <td>{{ $data->title }}</td>
+                    <td>{{ $data->authors }}</td>
+                    <td>{{ $data->release_year }}</td>
+                    <td>{{ $data->tanggal_pinjam }}</td>
+                    <td>{{ $data->tanggal_kembali }}</td>
                 </tr>
+                @endforeach
+
             </tbody>
         </table>
     </div>
