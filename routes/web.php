@@ -38,5 +38,17 @@ Route::get('/admin', function () {
     return redirect('/admin/log');
 });
 Route::get('/admin/log', [AdminController::class, 'getLog']);
-Route::get('/admin/add', [AdminController::class, 'getAddBorrowing']);
-Route::post('/admin/add', [AdminController::class, 'postAddBorrowing']);
+Route::get('/admin/add/borrowings', [AdminController::class, 'getAddBorrowing']);
+Route::post('/admin/add/borrowings', [AdminController::class, 'postAddBorrowing']);
+
+Route::get('/admin/add/books', [AdminController::class, 'getAddBooks']);
+Route::post('/admin/add/books', [AdminController::class, 'postAddBooks']);
+
+Route::get('/admin/edit/books/{id}', [AdminController::class, 'getEditBookDetailView']);
+Route::post('/admin/edit/books', [AdminController::class, 'postBookEditView']);
+Route::post('/admin/edit/books/delete', [AdminController::class, 'postBookDelete']);
+
+Route::get('/logout', [AuthenticateController::class, 'userLogout']);
+Route::get('/admin/logout', [AuthenticateController::class, 'adminLogout']);
+
+Route::get('/admin/books', [AdminController::class, 'getBookView']);
