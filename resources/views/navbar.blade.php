@@ -4,6 +4,7 @@
     @if (session()->has('username'))
         <div class="authentication">
             <div class="navbar-brand">Hello, {{ session()->get('username') }}</div>
+            <a class="navbar-brand" href="/logout">Logout</a>
         </div>
     @else
         <div class="authentication">

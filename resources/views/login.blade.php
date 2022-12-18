@@ -12,6 +12,9 @@
 </head>
 
 <body>
+    {{-- Navbar --}}
+    @include('navbar')
+
     <div class="container">
         <div class="row">
             <div class="col">

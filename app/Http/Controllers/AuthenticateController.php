@@ -120,4 +120,17 @@ class AuthenticateController extends Controller
         // Redirect back to admin main view (log view)
         return redirect('/admin/log');
     }
+
+    public function userLogout(Request $request)
+    {
+        $request->session()->forget('username');
+        $request->session()->forget('userId');
+        return redirect('/login');
+    }
+
+    public function adminLogout(Request $request)
+    {
+        $request->session()->forget('adminId');
+        return redirect('/admin/login');
+    }
 }
