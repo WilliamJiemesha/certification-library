@@ -18,24 +18,27 @@
 
     {{-- Book Catalogue --}}
     <div class="row mt-5">
-        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 mx-auto">
-            <div class="bookCard text-center">
-                <a href="">
-                    <img class="coverImage" src="{{ url('/book_covers/white_fang.jpg') }}" alt="Book Cover"
-                        width="166" height="256">
-                    <div class="bookTitle mt-2">
-                        White Fang
-                    </div>
-                    <div class="bookAuthor">
-                        <p>Jack London</p>
-                    </div>
-                </a>
+        @foreach ($bookCollection as $book)
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 mx-auto">
+                <div class="bookCard text-center">
+                    <a href="/catalogue/{{ $book->Id }}">
+                        <img class="coverImage" src="{{ url('/book_covers/' . $book->ImageString) }}" alt="Book Cover"
+                            width="166" height="256">
+                        <div class="bookTitle mt-2">
+                            {{ $book->Judul }}
+                        </div>
+                        <div class="bookAuthor">
+                            <p>{{ $book->Author }}</p>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
+        @endforeach
     </div>
 
 
 
 </body>
+<script></script>
 
 </html>

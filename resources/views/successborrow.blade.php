@@ -26,17 +26,17 @@
                     <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 mx-auto text-center">
                         <div class="bookCard text-center">
                             <a href="">
-                                <img class="coverImage" src="{{ url('/book_covers/white_fang.jpg') }}" alt="Book Cover"
-                                    width="166" height="256">
+                                <img class="coverImage" src="{{ url('/book_covers/' . $bookBorrowed->ImageString) }}"
+                                    alt="Book Cover" width="166" height="256">
                                 <div class="bookTitle mt-2">
-                                    White Fang
+                                    {{ $bookBorrowed->Judul }}
                                 </div>
                                 <div class="bookAuthor">
-                                    <p>Jack London</p>
+                                    <p>{{ $bookBorrowed->Author }}</p>
                                 </div>
                             </a>
                         </div>
-                        <a href="" class="buttonContent text-center mx-auto " style="max-width: 166px">
+                        <a href="/" class="buttonContent text-center mx-auto " style="max-width: 166px">
                             <div class="button text-center">
                                 Back to Catalogue
                             </div>
